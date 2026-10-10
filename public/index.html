@@ -1,47 +1,537 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#050807">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NETHA CYBER HACKER</title>
+
 <style>
-:root{color-scheme:dark;--green:#39ff88;--muted:#91a79a}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at top,#10351f 0,#07120c 40%,#030504 78%);color:#e8fff0;font-family:system-ui,Arial,sans-serif}
-.wrap{width:min(100%,430px)}.brand{text-align:center;margin-bottom:22px}.symbol{width:70px;height:70px;border:1px solid #39ff8877;border-radius:20px;display:grid;place-items:center;margin:0 auto 14px;color:var(--green);font-size:34px;box-shadow:0 0 30px #39ff8820}
-h1{font-size:clamp(23px,6vw,31px);letter-spacing:1.5px;margin:0;text-shadow:0 0 18px #39ff8844}.sub{color:var(--muted);font-size:12px;letter-spacing:3px;margin-top:8px}
-.card{border:1px solid #39ff8840;border-radius:18px;padding:25px;background:#07100be8;box-shadow:0 20px 70px #0008}.label{display:block;font-size:12px;color:#b4c9ba;margin-bottom:9px;letter-spacing:1px}input,button{width:100%;border-radius:10px;padding:14px;font:inherit}input{background:#030805;border:1px solid #294b36;color:white;outline:none}input:focus{border-color:var(--green);box-shadow:0 0 0 3px #39ff8817}button{border:0;background:var(--green);color:#041109;font-weight:800;letter-spacing:1px;margin-top:13px;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.status{min-height:24px;text-align:center;font-size:13px;margin-top:14px;color:var(--muted)}.ok{color:var(--green)}.bad{color:#ff7373}.hidden{display:none}.foot{text-align:center;color:#647a6a;font-size:11px;margin-top:17px}.admin-toggle{display:block;text-align:center;color:#91a79a;font-size:12px;margin-top:18px;text-decoration:underline;cursor:pointer}.admin-card{margin-top:14px}.row{display:flex;gap:8px}.row button{margin-top:0}.secondary{background:#163522;color:#caffd8;border:1px solid #326c48}.keybox{padding:12px;background:#020704;border:1px dashed #39ff88;border-radius:8px;word-break:break-all;color:var(--green);margin:10px 0}.keyrow{font-size:12px;border-top:1px solid #203a29;padding:10px 0;display:flex;justify-content:space-between;gap:10px}.small{font-size:11px;color:var(--muted)}.list{margin-top:10px}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  background: #050b08;
+  color: #00ff88;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 480px;
+  margin: 30px auto;
+  padding: 22px;
+  background: #0b1510;
+  border: 1px solid #00ff8855;
+  border-radius: 16px;
+  box-shadow: 0 0 25px #00ff8815;
+}
+
+h1 {
+  text-align: center;
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  text-align: center;
+  color: #8bbba1;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 8px;
+  font-size: 13px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: #050b08;
+  color: white;
+  border: 1px solid #24583b;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #00ff88;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #00ff88;
+  color: #041008;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.secondary {
+  background: #173a27;
+  color: #00ff88;
+  border: 1px solid #24583b;
+}
+
+.status {
+  margin-top: 12px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.panel {
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #24583b;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.keybox {
+  margin-top: 12px;
+  padding: 14px;
+  background: #061b10;
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  color: white;
+  line-height: 1.6;
+}
+
+.item {
+  margin-top: 10px;
+  padding: 12px;
+  background: #07100b;
+  border: 1px solid #20452f;
+  border-radius: 8px;
+  color: #c3e8d0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.item button {
+  background: #562222;
+  color: white;
+}
+
+#protectedContent {
+  padding: 16px;
+  border: 1px solid #00ff88;
+  border-radius: 10px;
+  margin-top: 18px;
+  background: #061b10;
+  color: white;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  color: #648673;
+  font-size: 11px;
+}
 </style>
 </head>
-<body><main class="wrap">
-<header class="brand"><div class="symbol">⌘</div><h1>NETHA CYBER HACKER</h1><div class="sub">SECURE ACCESS PORTAL</div></header>
-<section class="card">
-<div id="userPanel"><label class="label" for="accessKey">ACCESS KEY</label><input id="accessKey" autocomplete="off" autocapitalize="characters" placeholder="Enter your access key" maxlength="100"><button id="unlock">UNLOCK ACCESS</button><div id="userStatus" class="status" aria-live="polite"></div>
-<div id="dashboard" class="hidden"><div class="keybox ok">✓ ACCESS GRANTED</div><p>Welcome. Your key has been verified.</p><p class="small">This is a starter portal. Add your own permitted content here.</p><button id="lockAgain" class="secondary">LOCK AGAIN</button></div>
-</div>
-<span class="admin-toggle" id="adminToggle">Admin login</span>
-<div id="adminPanel" class="hidden admin-card">
-<label class="label" for="adminPassword">ADMIN PASSWORD</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Admin password">
-<button id="adminLogin">ADMIN LOGIN</button><div id="adminStatus" class="status" aria-live="polite"></div>
-<div id="adminTools" class="hidden">
-<hr style="border-color:#203a29;margin:20px 0">
-<label class="label" for="keyLabel">KEY LABEL (OPTIONAL)</label><input id="keyLabel" maxlength="60" placeholder="e.g. Friend 1">
-<button id="createKey">GENERATE 30-DAY KEY</button><div id="newKey" class="keybox hidden"></div>
-<div class="row"><button id="refreshKeys" class="secondary">REFRESH LIST</button><button id="adminLogout" class="secondary">LOG OUT</button></div>
-<div id="keyList" class="list"></div>
-</div></div>
-</section><div class="foot">NETHA CYBER HACKER · ACCESS CONTROL DEMO</div>
+
+<body>
+
+<main class="container">
+
+  <h1>NETHA CYBER HACKER</h1>
+
+  <div class="subtitle">
+    ACCESS CONTROL SYSTEM
+  </div>
+
+  <!-- ACCESS KEY LOGIN -->
+
+  <section id="accessSection">
+
+    <h2>🔑 Access Key</h2>
+
+    <label for="accessKey">ENTER YOUR ACCESS KEY</label>
+
+    <input
+      id="accessKey"
+      type="text"
+      placeholder="Enter access key"
+      autocomplete="off"
+      spellcheck="false"
+    >
+
+    <button id="verifyButton">
+      UNLOCK WEBSITE
+    </button>
+
+    <div id="accessStatus" class="status"
+         aria-live="polite"></div>
+
+    <div id="protectedContent" class="hidden">
+      <h2>ACCESS GRANTED ✅</h2>
+      <p>Welcome to NETHA CYBER HACKER!</p>
+      <p>Your access key has been verified successfully.</p>
+      <p id="welcomeMessage">
+        You can now access the available website content.
+      </p>
+      <button id="lockButton" class="secondary">
+        LOCK WEBSITE
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ADMIN LOGIN -->
+
+  <section class="panel">
+
+    <h2>🔐 Admin Login</h2>
+
+    <label for="adminPassword">ADMIN PASSWORD</label>
+
+    <input
+      id="adminPassword"
+      type="password"
+      placeholder="Admin password"
+      autocomplete="current-password"
+    >
+
+    <button id="adminLogin">
+      ADMIN LOGIN
+    </button>
+
+    <div id="adminStatus" class="status"
+         aria-live="polite"></div>
+
+    <!-- ADMIN PANEL -->
+
+    <div id="adminTools" class="hidden">
+
+      <div class="panel">
+
+        <h2>⚙️ Admin Dashboard</h2>
+
+        <label for="keyLabel">KEY LABEL (OPTIONAL)</label>
+
+        <input
+          id="keyLabel"
+          type="text"
+          maxlength="60"
+          placeholder="e.g. Friend 1"
+        >
+
+        <button id="createKey">
+          GENERATE 30-DAY KEY
+        </button>
+
+        <div id="newKey" class="keybox hidden"></div>
+
+        <button id="refreshKeys" class="secondary">
+          REFRESH KEY LIST
+        </button>
+
+        <div id="keyList"></div>
+
+        <button id="adminLogout" class="secondary">
+          ADMIN LOGOUT
+        </button>
+
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    NETHA CYBER HACKER · ACCESS CONTROL DEMO
+  </footer>
+
 </main>
+
 <script>
-const $=id=>document.getElementById(id);
-async function api(path,data={}){const r=await fetch(path,{method:"POST",headers:{"content-type":"application/json"},credentials:"same-origin",body:JSON.stringify(data)});let d={};try{d=await r.json()}catch{}if(!r.ok)throw Error(d.error||"Request failed");return d}
-function status(id,msg,kind=""){const el=$(id);el.textContent=msg;el.className="status "+kind}
-$("unlock").onclick=async()=>{const b=$("unlock");b.disabled=true;status("userStatus","Checking key…");try{const d=await api("/api/verify",{key:$("accessKey").value});status("userStatus",d.message,"ok");$("dashboard").classList.remove("hidden");$("accessKey").disabled=true;b.classList.add("hidden")}catch(e){status("userStatus",e.message,"bad")}finally{b.disabled=false}};
-$("accessKey").addEventListener("keydown",e=>{if(e.key==="Enter")$("unlock").click()});
-$("lockAgain").onclick=()=>{$("dashboard").classList.add("hidden");$("accessKey").disabled=false;$("accessKey").value="";$("unlock").classList.remove("hidden");status("userStatus","")};
-$("adminToggle").onclick=()=>{$("adminPanel").classList.toggle("hidden")};
-$("adminLogin").onclick=async()=>{try{await api("/api/admin/login",{password:$("adminPassword").value});$("adminTools").classList.remove("hidden");status("adminStatus","Admin login successful","ok");$("adminPassword").value="";await loadKeys()}catch(e){status("adminStatus",e.message,"bad")}};
-$("createKey").onclick=async()=>{try{const d=await api("/api/admin/create",{label:$("keyLabel").value});$("newKey").textContent=d.key+" — expires "+new Date(d.expiresAt).toLocaleString();$("newKey").classList.remove("hidden");$("keyLabel").value="";await loadKeys()}catch(e){status("adminStatus",e.message,"bad")}};
-async function loadKeys(){try{const d=await api("/api/admin/list");$("keyList").innerHTML="";if(!d.keys.length){$("keyList").textContent="No keys created yet.";return}for(const k of d.keys){const row=document.createElement("div");row.className="keyrow";const info=document.createElement("span");info.textContent=(k.label||"Unlabelled")+" · "+k.status+" · expires "+new Date(k.expiresAt).toLocaleDateString();row.appendChild(info);if(!k.disabled&&k.status!=="Expired"){const btn=document.createElement("button");btn.textContent="DISABLE";btn.style.cssText="width:auto;margin:0;padding:7px 9px;font-size:10px";btn.onclick=async()=>{try{await api("/api/admin/disable",{id:k.id});await loadKeys()}catch(e){status("adminStatus",e.message,"bad")}};row.appendChild(btn)}$("keyList").appendChild(row)}}catch(e){status("adminStatus",e.message,"bad")}}
-$("refreshKeys").onclick=loadKeys;
-$("adminLogout").onclick=async()=>{try{await api("/api/admin/logout")}catch{}$("adminTools").classList.add("hidden");status("adminStatus","Logged out")};
-</script></body></html>
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+async function api(path, data = {}) {
+  const response = await fetch(path, {
+    method: "POST",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  let result;
+
+  try {
+    result = await response.json();
+  } catch {
+    throw new Error("Invalid server response.");
+  }
+
+  if (!response.ok || result.ok === false) {
+    throw new Error(
+      result.error || "Request failed. Please try again."
+    );
+  }
+
+  return result;
+}
+
+function showStatus(id, message, success = false) {
+  const element = $(id);
+  element.textContent = message;
+  element.style.color = success ? "#00ff88" : "#ff8585";
+}
+
+function setBusy(button, busy, text) {
+  button.disabled = busy;
+
+  if (busy) {
+    button.dataset.originalText = button.textContent;
+    button.textContent = text || "PLEASE WAIT...";
+  } else {
+    button.textContent =
+      button.dataset.originalText || button.textContent;
+  }
+}
+
+/* ACCESS KEY VERIFICATION */
+
+$("verifyButton").addEventListener("click", async () => {
+  const key = $("accessKey").value.trim();
+
+  if (!key) {
+    showStatus("accessStatus", "Please enter your access key.");
+    return;
+  }
+
+  const button = $("verifyButton");
+  setBusy(button, true, "VERIFYING...");
+
+  try {
+    const result = await api("/api/verify", { key });
+
+    $("protectedContent").classList.remove("hidden");
+
+    showStatus(
+      "accessStatus",
+      result.message || "ACCESS GRANTED",
+      true
+    );
+
+  } catch (error) {
+    $("protectedContent").classList.add("hidden");
+
+    showStatus(
+      "accessStatus",
+      error.message || "Invalid access key."
+    );
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+$("accessKey").addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    $("verifyButton").click();
+  }
+});
+
+$("lockButton").addEventListener("click", () => {
+  $("protectedContent").classList.add("hidden");
+  $("accessKey").value = "";
+  showStatus("accessStatus", "Website locked.");
+});
+
+/* ADMIN LOGIN */
+
+$("adminLogin").addEventListener("click", async () => {
+  const password = $("adminPassword").value;
+
+  if (!password) {
+    showStatus("adminStatus", "Enter the admin password.");
+    return;
+  }
+
+  const button = $("adminLogin");
+  setBusy(button, true, "LOGGING IN...");
+
+  try {
+    await api("/api/admin/login", { password });
+
+    $("adminPassword").value = "";
+    $("adminTools").classList.remove("hidden");
+
+    showStatus("adminStatus", "Admin login successful.", true);
+
+    await loadKeys();
+
+  } catch (error) {
+    showStatus(
+      "adminStatus",
+      error.message || "Admin login failed."
+    );
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+$("adminPassword").addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    $("adminLogin").click();
+  }
+});
+
+/* GENERATE ACCESS KEY */
+
+$("createKey").addEventListener("click", async () => {
+  const label = $("keyLabel").value.trim();
+  const button = $("createKey");
+
+  setBusy(button, true, "GENERATING...");
+
+  try {
+    const result = await api("/api/admin/create", { label });
+
+    $("newKey").classList.remove("hidden");
+    $("newKey").textContent =
+      "NEW ACCESS KEY: " + result.key +
+      "\n\nSave this key now and share it only with its intended user.";
+
+    $("keyLabel").value = "";
+
+    await loadKeys();
+
+  } catch (error) {
+    showStatus("adminStatus", error.message);
+  } finally {
+    setBusy(button, false);
+  }
+});
+
+/* LOAD ACCESS KEY LIST */
+
+async function loadKeys() {
+  const list = $("keyList");
+  list.textContent = "Loading keys...";
+
+  try {
+    const result = await api("/api/admin/list");
+
+    list.replaceChildren();
+
+    const keys = Array.isArray(result.keys) ? result.keys : [];
+
+    if (keys.length === 0) {
+      list.textContent = "No access keys found.";
+      return;
+    }
+
+    keys.forEach(key => {
+      const item = document.createElement("div");
+      item.className = "item";
+
+      const title = document.createElement("strong");
+      title.textContent = key.label || "Access Key";
+
+      const details = document.createElement("p");
+      const expiry = key.expires_at ?? key.expiresAt;
+      const disabled = Number(key.disabled) === 1 ||
+                       key.disabled === true;
+
+      let expiryText = "Unknown";
+
+      if (expiry !== undefined && expiry !== null) {
+        const date = new Date(
+          Number(expiry) < 100000000000
+            ? Number(expiry) * 1000
+            : Number(expiry)
+        );
+
+        if (!Number.isNaN(date.getTime())) {
+          expiryText = date.toLocaleString();
+        }
+      }
+
+      details.textContent =
+        "ID: " + key.id +
+        " | Expires: " + expiryText +
+        " | Status: " + (disabled ? "Disabled" : "Active");
+
+      item.append(title, details);
+
+      if (!disabled) {
+        const disableButton = document.createElement("button");
+        disableButton.textContent = "DISABLE KEY";
+        disableButton.addEventListener("click", async () => {
+          disableButton.disabled = true;
+
+          try {
+            await api("/api/admin/disable", {
+              id: key.id
+            });
+
+            await loadKeys();
+
+          } catch (error) {
+            showStatus("adminStatus", error.message);
+            disableButton.disabled = false;
+          }
+        });
+
+        item.appendChild(disableButton);
+      }
+
+      list.appendChild(item);
+    });
+
+  } catch (error) {
+    list.textContent = "Could not load keys: " + error.message;
+  }
+}
+
+$("refreshKeys").addEventListener("click", loadKeys);
+
+/* ADMIN LOGOUT */
+
+$("adminLogout").addEventListener("click", async () => {
+  try {
+    await api("/api/admin/logout");
+
+    $("adminTools").classList.add("hidden");
+    $("newKey").classList.add("hidden");
+    $("keyList").replaceChildren();
+
+    showStatus("adminStatus", "Logged out successfully.", true);
+
+  } catch (error) {
+    showStatus("adminStatus", error.message);
+  }
+});
+</script>
+
+</body>
+  </html>
